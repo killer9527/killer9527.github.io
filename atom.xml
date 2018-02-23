@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-23T08:53:12.683Z</updated>
+  <updated>2018-02-23T08:59:14.163Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/02/23/Hexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2018/02/23/Hexo-Github搭建自己的博客（一）/</id>
     <published>2018-02-23T07:41:49.000Z</published>
-    <updated>2018-02-23T08:53:12.683Z</updated>
+    <updated>2018-02-23T08:59:14.163Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>在查阅资料时，我发现有些人的博客风格简洁而清晰，很喜欢，因此学习基于Hexo+GitHub搭建了一套自己的博客系统，记录如下。</p></blockquote><hr><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>主要完成以下工作：</p><ul><li>安装Git</li><li>安装node.js</li><li>安装Hexo</li></ul><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><ol><li><a href="https://github.com/git-for-windows/git/tags" target="_blank" rel="noopener">下载Git</a><br>我使用的v1.9.5，网上说高版本会有问题，未验证</li><li>安装<br>注意在步骤2中，选择配置Git环境变量的选项，即：Use Git from the Windows Command Prompt</li><li>验证<br>在cmd下，执行命令<code>git --version</code></li></ol><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><ol><li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">下载node.js</a><br>我使用的v6.3.1</li><li>安装</li><li>验证<br>在cmd下，执行命令<code>node -v</code></li></ol><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用npm命令安装</p><ol><li>新建Hexo文件夹，进入Hexo，任意位置点击鼠标右键，选择Git Bash（已经安装Git），步骤2和步骤3命令均在Git bash中执行</li><li>使用淘宝npm镜像：<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>（需要等待一段时间）</li><li>安装hexo：<code>cnpm install -g hexo-cli</code></li><li>验证：cmd下，执行命令<code>hexo -v</code></li></ol><h2 id="运行Hexo"><a href="#运行Hexo" class="headerlink" title="运行Hexo"></a>运行Hexo</h2><p>Git Bash命令界面中，执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">cnpm install</span><br><span class="line">hexo server -p 4001</span><br></pre></td></tr></table></figure></p><p>注意：hexo默认使用4000端口，但是如果4000端口被占用，则会一直没有响应，因此在启动的时候我指定hexo使用4001端口</p><p>浏览器中输入<a href="http://localhost:4001" target="_blank" rel="noopener">http://localhost:4001</a><br>看到如下页面表明你已经成功了<br><img src="/2018/02/23/Hexo-Github搭建自己的博客（一）/./images./Hexo-Github搭建自己的博客/hello world blog.png" alt="helloworld"><br></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>在查阅资料时，我发现有些人的博客风格简洁而清晰，很喜欢，因此学习基于Hexo+GitHub搭建了一套自己的博客系统，记录如下。</p></blockquote><hr><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>主要完成以下工作：</p><ul><li>安装Git</li><li>安装node.js</li><li>安装Hexo</li></ul><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><ol><li><a href="https://github.com/git-for-windows/git/tags" target="_blank" rel="noopener">下载Git</a><br>我使用的v1.9.5，网上说高版本会有问题，未验证</li><li>安装<br>注意在步骤2中，选择配置Git环境变量的选项，即：Use Git from the Windows Command Prompt</li><li>验证<br>在cmd下，执行命令<code>git --version</code></li></ol><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><ol><li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">下载node.js</a><br>我使用的v6.3.1</li><li>安装</li><li>验证<br>在cmd下，执行命令<code>node -v</code></li></ol><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用npm命令安装</p><ol><li>新建Hexo文件夹，进入Hexo，任意位置点击鼠标右键，选择Git Bash（已经安装Git），步骤2和步骤3命令均在Git bash中执行</li><li>使用淘宝npm镜像：<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>（需要等待一段时间）</li><li>安装hexo：<code>cnpm install -g hexo-cli</code></li><li>验证：cmd下，执行命令<code>hexo -v</code></li></ol><h2 id="运行Hexo"><a href="#运行Hexo" class="headerlink" title="运行Hexo"></a>运行Hexo</h2><p>Git Bash命令界面中，执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">cnpm install</span><br><span class="line">hexo server -p 4001</span><br></pre></td></tr></table></figure></p><p>注意：hexo默认使用4000端口，但是如果4000端口被占用，则会一直没有响应，因此在启动的时候我指定hexo使用4001端口</p><p>浏览器中输入<a href="http://localhost:4001" target="_blank" rel="noopener">http://localhost:4001</a><br>看到如下页面表明你已经成功了<br><img src="/2018/02/23/Hexo-Github搭建自己的博客（一）/./images./Hexo-Github搭建自己的博客/hello world blog.png" alt="helloworld"><br><img src="/2018/02/23/Hexo-Github搭建自己的博客（一）/2018/02/23/Hexo-Github搭建自己的博客（一）/helloworldblog.png" title="这是一个新的博客的图片的说明"></p>]]></content>
     
     <summary type="html">
     
@@ -91,9 +91,9 @@
       <category term="Testing" scheme="http://yoursite.com/categories/Testing/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
       <category term="Testing" scheme="http://yoursite.com/tags/Testing/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   

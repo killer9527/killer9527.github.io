@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Siri咔咔</title>
+  
+  <subtitle>学而时习之</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-02-23T01:52:35.290Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>siri-kk</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>New Post</title>
+    <link href="http://yoursite.com/2018/02/22/New-Post/"/>
+    <id>http://yoursite.com/2018/02/22/New-Post/</id>
+    <published>2018-02-22T07:18:59.000Z</published>
+    <updated>2018-02-23T01:52:35.290Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="上周计划"><a href="#上周计划" class="headerlink" title="上周计划"></a>上周计划</h3><p><strong>江西法官E助理</strong></p><ol><li>江西e助理诉审判一致性模块接口开发（完成）</li></ol><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><ol><li><strong>法官e助理</strong><ul><li>获取案件信息接口开发</li><li>诉审判一致性对比列表接口开发</li><li>获取事件转化关系图接口开发</li><li>诉审判一致性查看文本中事件相关描述接口开发</li><li>诉审判一致性判断审理状态、审理认定状态和裁判状态接口开发</li><li>文书生成事件推送接口开发</li><li>文书生成修改获取未完成文书接口</li><li>诉审判一致性接口对接</li></ul></li></ol><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>  本周主要完成了江西e助理诉审判一致性模块接口的开发，并跟前端进行对接。其中诉审判一致性判断状态的逻辑是根据prd文档中的规则实现的，但是这些规则并不能完全覆盖所有的情况（可能这些情况在真实案例中不存在，产品没有考虑）。</p><h3 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h3><p>无</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;上周计划&quot;&gt;&lt;a href=&quot;#上周计划&quot; class=&quot;headerlink&quot; title=&quot;上周计划&quot;&gt;&lt;/a&gt;上周计划&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;江西法官E助理&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;江西e助理诉审判一致性模块接口开发（完成）&lt;/l
+      
+    
+    </summary>
+    
+    
+      <category term="Testing" scheme="http://yoursite.com/tags/Testing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World——你好，世界</title>
+    <link href="http://yoursite.com/2018/02/22/hello-world/"/>
+    <id>http://yoursite.com/2018/02/22/hello-world/</id>
+    <published>2018-02-22T07:00:02.482Z</published>
+    <updated>2018-02-23T01:30:19.504Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start——快速开始"><a href="#Quick-Start——快速开始" class="headerlink" title="Quick Start——快速开始"></a>Quick Start——快速开始</h2><h3 id="创建一篇新博客"><a href="#创建一篇新博客" class="headerlink" title="创建一篇新博客"></a>创建一篇新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="裕兴Run-server"><a href="#裕兴Run-server" class="headerlink" title="裕兴Run server"></a>裕兴Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h3><p>设定菜单内容，对应的字段是 menu。 菜单内容的设置格式是：item name: link。其中 item name 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p><h3 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package levenshtein;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by T450 on 2017/6/27.</span><br><span class="line"> * 编辑距离</span><br><span class="line"> */</span><br><span class="line">public class LevenshteinSimilar &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 计算两个字符串的编辑距离</span><br><span class="line">     * @param s1</span><br><span class="line">     * @param s2</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static int levenshteinDistance(String s1, String s2)&#123;</span><br><span class="line">        assert s1!=null &amp;&amp; s2!=null;</span><br><span class="line">        int m = s1.length();</span><br><span class="line">        int n = s2.length();</span><br><span class="line">        int[][] matrix = new int[m+1][n+1];</span><br><span class="line">        //初始化矩阵</span><br><span class="line">        initMatrix(matrix, m, n);</span><br><span class="line">        for(int i=1; i&lt;=m; i++)&#123;</span><br><span class="line">            for(int j=1; j&lt;=n; j++)&#123;</span><br><span class="line">                int x = matrix[i-1][j] + 1;</span><br><span class="line">                int y = matrix[i][j-1] + 1;</span><br><span class="line">                int z = matrix[i-1][j-1] + ((s1.charAt(i-1)==s2.charAt(j-1)) ? 0 : 1);</span><br><span class="line">                int result = min(x, y, z);</span><br><span class="line">                matrix[i][j] = result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return matrix[m][n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 初始化矩阵</span><br><span class="line">     * @param matrix</span><br><span class="line">     * @param m</span><br><span class="line">     * @param n</span><br><span class="line">     */</span><br><span class="line">    private static void initMatrix(int[][] matrix, int m, int n)&#123;</span><br><span class="line">        for(int i=0; i&lt;=m; i++)&#123;</span><br><span class="line">            matrix[i][0] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int j=0; j&lt;=n; j++)&#123;</span><br><span class="line">            matrix[0][j] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 取x，y，z中的最小值</span><br><span class="line">     * @param x</span><br><span class="line">     * @param y</span><br><span class="line">     * @param z</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private static int min(int x, int y, int z)&#123;</span><br><span class="line">        int min = x;</span><br><span class="line">        if(y&lt;min)&#123;</span><br><span class="line">            min = y;</span><br><span class="line">        &#125;</span><br><span class="line">        if(z&lt;min)&#123;</span><br><span class="line">            min = z;</span><br><span class="line">        &#125;</span><br><span class="line">        return min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>测试行内代码<code>this is an inline coding test</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+      <category term="Testing" scheme="http://yoursite.com/categories/Testing/"/>
+    
+    
+      <category term="Testing" scheme="http://yoursite.com/tags/Testing/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>

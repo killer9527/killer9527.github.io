@@ -164,7 +164,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/02/23/Hexo-Github搭建自己的博客（二）/hexohelloworld.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/23/Hexo-Github搭建自己的博客（二）/uid.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/23/Hexo-Github搭建自己的博客（二）/tongjiid.png">
-<meta property="og:updated_time" content="2018-02-25T08:18:53.766Z">
+<meta property="og:updated_time" content="2018-02-25T08:21:05.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github搭建自己的博客（二）">
 <meta name="twitter:description" content="Hexo支持各种主题风格，默认使用Landscape主题，本章我们介绍如何使用Next主题美化我们的博客  在Hexo中有两份主要的配置文件，其名称都是_config.yml。 其中，一份位于站点根目录下，主要包含Hexo本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。为了描述方便，在以下说明中，将前者称为站点配置文件， 后者称为主题配置文件。">
@@ -438,17 +438,6 @@
 
           
           
-             <span id="/2018/02/23/Hexo-Github搭建自己的博客（二）/" class="leancloud_visitors" data-flag-title="Hexo+Github搭建自己的博客（二）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
             <span class="post-meta-divider">|</span>
@@ -557,7 +546,7 @@
 <li>修改主题配置文件，检索baidu_analytics<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidu_analytics: your_baidu_id</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="阅读次数统计"><a href="#阅读次数统计" class="headerlink" title="阅读次数统计"></a>阅读次数统计</h3><ol>
+<h3 id="阅读次数统计（后面有更简单方式）"><a href="#阅读次数统计（后面有更简单方式）" class="headerlink" title="阅读次数统计（后面有更简单方式）"></a>阅读次数统计（后面有更简单方式）</h3><ol>
 <li>注册登录<a href="https://leancloud.cn" target="_blank" rel="noopener">LeanCloud</a>，创建应用，点击应用，创建Class，Class名称为Counter，选择无限制</li>
 <li>设置中，点击“应用Key”，获取AppId，AppKey</li>
 <li>修改主题配置文件，检索leancloud_visitors<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: your_app_id</span><br><span class="line">  app_key: your_app_key</span><br></pre></td></tr></table></figure>
@@ -586,7 +575,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">page_end_tag:</span><br><span class="line">  enabled: true</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="网站底部添加访问量"><a href="#网站底部添加访问量" class="headerlink" title="网站底部添加访问量"></a>网站底部添加访问量</h3><p>编辑主题配置文件，检索busuanzi_count<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure></p>
+<h3 id="网站底部添加访问量和博客阅读次数统计"><a href="#网站底部添加访问量和博客阅读次数统计" class="headerlink" title="网站底部添加访问量和博客阅读次数统计"></a>网站底部添加访问量和博客阅读次数统计</h3><p>编辑主题配置文件，检索busuanzi_count<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">Next主题使用介绍</a></p>
 
       
@@ -872,7 +861,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换theme"><span class="nav-number">1.</span> <span class="nav-text">更换theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设定"><span class="nav-number">2.</span> <span class="nav-text">主题设定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择scheme"><span class="nav-number">2.1.</span> <span class="nav-text">选择scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置博客language"><span class="nav-number">2.2.</span> <span class="nav-text">设置博客language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置博客菜单项"><span class="nav-number">2.3.</span> <span class="nav-text">设置博客菜单项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧栏"><span class="nav-number">2.4.</span> <span class="nav-text">设置侧栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">2.5.</span> <span class="nav-text">设置头像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">3.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置RSS"><span class="nav-number">3.1.</span> <span class="nav-text">设置RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加标签页面"><span class="nav-number">3.2.</span> <span class="nav-text">添加标签页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加分类页面"><span class="nav-number">3.3.</span> <span class="nav-text">添加分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置字体"><span class="nav-number">3.4.</span> <span class="nav-text">设置字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏设置社交链接"><span class="nav-number">3.5.</span> <span class="nav-text">侧边栏设置社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启打赏功能"><span class="nav-number">3.6.</span> <span class="nav-text">开启打赏功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加友情链接"><span class="nav-number">3.7.</span> <span class="nav-text">添加友情链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置「阅读全文」"><span class="nav-number">3.8.</span> <span class="nav-text">设置「阅读全文」</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务集成"><span class="nav-number">4.</span> <span class="nav-text">第三方服务集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#评论系统"><span class="nav-number">4.1.</span> <span class="nav-text">评论系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度统计"><span class="nav-number">4.2.</span> <span class="nav-text">百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读次数统计"><span class="nav-number">4.3.</span> <span class="nav-text">阅读次数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索服务"><span class="nav-number">4.4.</span> <span class="nav-text">搜索服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他个性化配置"><span class="nav-number">5.</span> <span class="nav-text">其他个性化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部带-的标签"><span class="nav-number">5.1.</span> <span class="nav-text">修改文章底部带#的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">5.2.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部添加访问量"><span class="nav-number">5.3.</span> <span class="nav-text">网站底部添加访问量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">6.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换theme"><span class="nav-number">1.</span> <span class="nav-text">更换theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设定"><span class="nav-number">2.</span> <span class="nav-text">主题设定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择scheme"><span class="nav-number">2.1.</span> <span class="nav-text">选择scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置博客language"><span class="nav-number">2.2.</span> <span class="nav-text">设置博客language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置博客菜单项"><span class="nav-number">2.3.</span> <span class="nav-text">设置博客菜单项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧栏"><span class="nav-number">2.4.</span> <span class="nav-text">设置侧栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">2.5.</span> <span class="nav-text">设置头像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">3.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置RSS"><span class="nav-number">3.1.</span> <span class="nav-text">设置RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加标签页面"><span class="nav-number">3.2.</span> <span class="nav-text">添加标签页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加分类页面"><span class="nav-number">3.3.</span> <span class="nav-text">添加分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置字体"><span class="nav-number">3.4.</span> <span class="nav-text">设置字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏设置社交链接"><span class="nav-number">3.5.</span> <span class="nav-text">侧边栏设置社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启打赏功能"><span class="nav-number">3.6.</span> <span class="nav-text">开启打赏功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加友情链接"><span class="nav-number">3.7.</span> <span class="nav-text">添加友情链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置「阅读全文」"><span class="nav-number">3.8.</span> <span class="nav-text">设置「阅读全文」</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务集成"><span class="nav-number">4.</span> <span class="nav-text">第三方服务集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#评论系统"><span class="nav-number">4.1.</span> <span class="nav-text">评论系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度统计"><span class="nav-number">4.2.</span> <span class="nav-text">百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读次数统计（后面有更简单方式）"><span class="nav-number">4.3.</span> <span class="nav-text">阅读次数统计（后面有更简单方式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索服务"><span class="nav-number">4.4.</span> <span class="nav-text">搜索服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他个性化配置"><span class="nav-number">5.</span> <span class="nav-text">其他个性化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部带-的标签"><span class="nav-number">5.1.</span> <span class="nav-text">修改文章底部带#的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">5.2.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部添加访问量和博客阅读次数统计"><span class="nav-number">5.3.</span> <span class="nav-text">网站底部添加访问量和博客阅读次数统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">6.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
@@ -1407,113 +1396,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("fWyPWm0xBPoTJ3p9gqiyfJ3m-gzGzoHsz", "gE10zVRSe0gqnR0cedPpcM3Y");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 

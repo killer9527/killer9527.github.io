@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wfwblog.cn/"/>
-  <updated>2018-02-26T01:56:30.211Z</updated>
+  <updated>2018-02-26T08:06:09.479Z</updated>
   <id>http://wfwblog.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nginx安装与配置</title>
+    <link href="http://wfwblog.cn/2018/02/26/Nginx%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://wfwblog.cn/2018/02/26/Nginx安装与配置/</id>
+    <published>2018-02-26T07:27:44.000Z</published>
+    <updated>2018-02-26T08:06:09.479Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文介绍nginx的安装与配置</p></blockquote><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装环境：CentOS7</p><ol><li><p>安装Nginx仓库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install epel-release</span><br></pre></td></tr></table></figure></li><li><p>安装Nginx</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install nginx</span><br></pre></td></tr></table></figure></li><li><p>启动Nginx</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx</span><br><span class="line">systemctl status nginx</span><br></pre></td></tr></table></figure><p> 注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否被占用，如果占用，则杀死进程</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnp | grep 80</span><br><span class="line">ps pid</span><br><span class="line">kill pid</span><br></pre></td></tr></table></figure><p> 其中pid为进程id</p></li><li><p>如果有防火墙，需要运行如下命令运行http和https访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http </span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></li><li><p>验证</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://server_domain_name_or_IP/</span><br></pre></td></tr></table></figure></li></ol><p><img src="/2018/02/26/Nginx安装与配置/nginxtest.png" alt="nginxtest.png"></p><ol><li>配置成开机启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable nginx</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;本文介绍nginx的安装与配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;安装环境：CentOS7&lt;/p&gt;
+&lt;ol
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="http://wfwblog.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="nginx" scheme="http://wfwblog.cn/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo+Github搭建自己的博客（三）</title>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Nginx安装与配置]]></title>
+    <url>%2F2018%2F02%2F26%2FNginx%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[本文介绍nginx的安装与配置 安装安装环境：CentOS7 安装Nginx仓库 1sudo yum install epel-release 安装Nginx 1sudo yum install nginx 启动Nginx 12systemctl start nginxsystemctl status nginx 注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否被占用，如果占用，则杀死进程 123netstat -lnp | grep 80ps pidkill pid 其中pid为进程id 如果有防火墙，需要运行如下命令运行http和https访问 123sudo firewall-cmd --permanent --zone=public --add-service=http sudo firewall-cmd --permanent --zone=public --add-service=httpssudo firewall-cmd --reload 验证 1http://server_domain_name_or_IP/ 配置成开机启动1sudo systemctl enable nginx]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo+Github搭建自己的博客（三）]]></title>
     <url>%2F2018%2F02%2F24%2FHexo-Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89%2F</url>
     <content type="text"><![CDATA[本地搭建好hexo系统后，我们可以将其部署到GitHub上，使用Github Pages访问我们的博客。 部署到GitHub 创建repository在GitHub中New一个repository，注意仓库的名称需要跟我们的GitHub用户名一致（GitHub Pages要求） 为仓库增加deploy key，否则发布过程会出现发布失败 生成本地ssh key，方法 拷贝.ssh/id_rsa.pub文件内的所有内容，进入repository，点击settings，点击Deploy keys，将拷贝的内容Add deploy key 修改站点配置文件1234deploy: type: git repo: git@github.com:yourname/yourname.github.io.git branch: master repo也可以配置为https的形式，但是我在发布过程中总是提示我版本不对，因此改用ssh发布 安装发布插件 1npm install hexo-deployer-git --save 发布 1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 测试访问https://yourname.github.io/ 定制域名如果我们想自己申请域名作为自己的博客地址，可以使用GitHub Pages的Custom domain功能。 申请域名我是在腾讯云上申请的，然后需要配置我们域名的解析注意记录类型选择CNAME，记录值填写仓库名称即可，表明是域名绑定域名 配置GitHub Pages进入repository的Settings，找到GitHub Pages，并配置custom domain点击Save后，在Code中会增加CNAME文件，内容即为我们的自定义域名。 hexo中增加CNAME文件由于每次Deploy后CNAME文件都会被删掉，因此需要在站点目录下的source中新增CNAME文件，内容为自定义域名 测试访问自定义域名]]></content>

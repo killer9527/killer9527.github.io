@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Nginx安装与配置]]></title>
     <url>%2F2018%2F02%2F26%2FNginx%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[本文介绍nginx的安装与配置 安装安装环境：CentOS7 安装Nginx仓库 1sudo yum install epel-release 安装Nginx 1sudo yum install nginx 启动Nginx 12systemctl start nginxsystemctl status nginx 注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否被占用，如果占用，则杀死进程 123netstat -lnp | grep 80ps pidkill pid 其中pid为进程id 如果有防火墙，需要运行如下命令运行http和https访问 123sudo firewall-cmd --permanent --zone=public --add-service=http sudo firewall-cmd --permanent --zone=public --add-service=httpssudo firewall-cmd --reload 验证 1http://server_domain_name_or_IP/ 配置成开机启动1sudo systemctl enable nginx]]></content>
+    <content type="text"><![CDATA[本文介绍nginx的安装与配置 安装安装环境：CentOS7 安装Nginx仓库 1sudo yum install epel-release 安装Nginx 1sudo yum install nginx 启动Nginx 12systemctl start nginxsystemctl status nginx 注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否被占用，如果占用，则杀死进程 123netstat -lnp | grep 80ps pidkill pid 其中pid为进程id 如果有防火墙，需要运行如下命令运行http和https访问 123sudo firewall-cmd --permanent --zone=public --add-service=http sudo firewall-cmd --permanent --zone=public --add-service=httpssudo firewall-cmd --reload 验证 1http://server_domain_name_or_IP/ 配置成开机启动1sudo systemctl enable nginx Nginx配置介绍默认服务器根目录默认服务器根目录为/usr/share/nginx/html，我们在安装nginx步骤进行验证时看到的页面所相关的文件就放置在该目录下，默认服务的配置文件为/etc/nginx/nginx.conf.default Nginx全局配置文件Nginx的全局配置文件为/etc/nginx/nginx.conf，注意它的内容中有一条包含配置include /etc/nginx/conf.d/*.conf;，表明它将/etc/nginx/conf.d目录下所有以.conf结尾的配置文件包含进来，实现配置的扩展。 参考文章how-to-install-nginx-on-centos-7]]></content>
       <categories>
         <category>服务器</category>
       </categories>

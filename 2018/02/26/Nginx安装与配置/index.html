@@ -162,7 +162,7 @@
 <meta property="og:description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/26/Nginx安装与配置/nginxtest.png">
-<meta property="og:updated_time" content="2018-02-27T10:32:37.807Z">
+<meta property="og:updated_time" content="2018-02-27T14:21:24.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx安装与配置">
 <meta name="twitter:description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
@@ -504,8 +504,8 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语法:	location [ = | ~ | ~* | ^~ ] uri &#123; ... &#125;</span><br><span class="line">location @name &#123; ... &#125;</span><br><span class="line">默认值:	—</span><br><span class="line">Context:	server, location</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>~*</code>（大小写不敏感 ）或<code>~</code>（大小写敏感）——正则匹配</li>
-<li><code>^~</code>——前缀匹配</li>
-<li><p><code>=</code>——精确匹配<br>匹配过程：首先进行精确匹配，匹配到则停止；然后使用uri进行前缀匹配，匹配出最长的的location，并记录，假设为location_prefix_longest；再然后进行正则匹配检查，假设匹配到的第一个location为location_reg_first，则使用location_reg_first中的配置，如果没有匹配到，则使用location_prefix_longest中的配置。<br>举例说明：</p>
+<li><code>^~</code>或无修饰——前缀匹配</li>
+<li><p><code>=</code>——精确匹配<br>匹配过程：首先进行精确匹配，匹配到此停止；然后使用uri进行前缀匹配，匹配出最长的的location，并记录，假设为location_prefix_longest，如果前缀匹配用<code>^~</code>修饰，则匹配到此停止；再然后进行正则匹配检查，假设匹配到的第一个location为location_reg_first，则使用location_reg_first中的配置，如果没有匹配到，则使用location_prefix_longest中的配置。<br>举例说明：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">location = / &#123;</span><br><span class="line">    [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line">location / &#123;</span><br><span class="line">    [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line">location /documents/ &#123;</span><br><span class="line">    [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line">location ^~ /images/ &#123;</span><br><span class="line">    [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">    [ configuration E ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>/</code>请求匹配configuration A，<code>/index.html</code>匹配configuration B，在<code>/documents/document.html</code>匹配configuration C，<code>/images/1.gif</code>匹配configuration D，<code>/documents/1.jpg</code>匹配configuration E。<br><code>@</code>定义了一个命名location，它用于请求重定向。不能嵌套且不能包含嵌套locations。</p>
 </li>
@@ -518,6 +518,18 @@
 <li><p><a href="https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/" target="_blank" rel="noopener">避免使用if指令</a><br> if指令是为rewrite模块设计的（location模块中只有rewrite或return），其他应用不推荐使用。例如：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if ($request_method = POST ) &#123;</span><br><span class="line">  return 405;</span><br><span class="line">&#125;</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">  rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 使用<code>try_files</code>判断文件是否存在。</p>
+</li>
+<li><p>访问静态内容</p>
+<ul>
+<li>创建目录/data/nginx_www，并添加index.html文件，创建/data/nginx_image，并添加图片<br>songhuiqiao.jpeg</li>
+<li><p><code>cd /etc/nginx/conf.d</code>并chuan创建配置文件<code>static_content.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    server &#123;</span><br><span class="line">    listen 8001;</span><br><span class="line">    server_name static_content;</span><br><span class="line">    root /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /data/nginx_www;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    location /nginx_images/ &#123;</span><br><span class="line">        root /data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新加载nginx配置<code>nginx -s reload</code></p>
+</li>
+<li>开放8001端口<code>firewall-cmd --zone=public --add-port=8001/http --permanent</code></li>
+<li>访问<code>http://ip:8001/</code>和<code>http://ip:8001/nginx_images/songhuiqiao.jpeg</code>，则分别访问的是<code>/data/nginx_www/index.html</code>静态文件和<code>/data/nginx_images/songhuiqiao.jpeg</code>静态文件</li>
+</ul>
 </li>
 </ol>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
@@ -557,7 +569,7 @@
   <p><span>本文标题:</span><a href="/2018/02/26/Nginx安装与配置/">Nginx安装与配置</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
   <p><span>发布时间:</span>2018年02月26日 - 15:02</p>
-  <p><span>最后更新:</span>2018年02月27日 - 18:02</p>
+  <p><span>最后更新:</span>2018年02月27日 - 22:02</p>
   <p><span>原始链接:</span><a href="/2018/02/26/Nginx安装与配置/" title="Nginx安装与配置">http://wfwblog.cn/2018/02/26/Nginx安装与配置/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/02/26/Nginx安装与配置/"  aria-label="复制成功！"></i></span>
   </p>

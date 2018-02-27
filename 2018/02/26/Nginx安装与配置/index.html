@@ -153,19 +153,19 @@
   <meta name="keywords" content="nginx," />
 
 
-<meta name="description" content="本文介绍nginx的安装与配置  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12systemctl start nginxsystemctl status nginx  注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否">
+<meta name="description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx安装与配置">
 <meta property="og:url" content="http://wfwblog.cn/2018/02/26/Nginx安装与配置/index.html">
 <meta property="og:site_name" content="Siri咔咔">
-<meta property="og:description" content="本文介绍nginx的安装与配置  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12systemctl start nginxsystemctl status nginx  注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否">
+<meta property="og:description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/26/Nginx安装与配置/nginxtest.png">
-<meta property="og:updated_time" content="2018-02-26T08:28:03.728Z">
+<meta property="og:updated_time" content="2018-02-27T10:22:20.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx安装与配置">
-<meta name="twitter:description" content="本文介绍nginx的安装与配置  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12systemctl start nginxsystemctl status nginx  注意nginx默认使用80端口启动，如果启动失败，可以查看80端口是否">
+<meta name="twitter:description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
 <meta name="twitter:image" content="http://wfwblog.cn/2018/02/26/Nginx安装与配置/nginxtest.png">
 
 
@@ -465,7 +465,7 @@
 
       
         <blockquote>
-<p>本文介绍nginx的安装与配置</p>
+<p>Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。</p>
 </blockquote>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装环境：CentOS7</p>
 <ol>
@@ -488,12 +488,44 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://server_domain_name_or_IP/</span><br></pre></td></tr></table></figure>
 <p> <img src="/2018/02/26/Nginx安装与配置/nginxtest.png" alt="nginxtest.png"></p>
 </li>
-<li>配置成开机启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable nginx</span><br></pre></td></tr></table></figure>
+<li><p>配置成开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新加载配置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="Nginx配置介绍"><a href="#Nginx配置介绍" class="headerlink" title="Nginx配置介绍"></a>Nginx配置介绍</h2><h3 id="默认服务器根目录"><a href="#默认服务器根目录" class="headerlink" title="默认服务器根目录"></a>默认服务器根目录</h3><p>默认服务器根目录为<code>/usr/share/nginx/html</code>，我们在安装nginx步骤进行验证时看到的页面所相关的文件就放置在该目录下，默认服务的配置文件为<code>/etc/nginx/nginx.conf.default</code></p>
+<h2 id="Nginx介绍"><a href="#Nginx介绍" class="headerlink" title="Nginx介绍"></a>Nginx介绍</h2><p>Nginx有一个主进程（master process）和很多工作进程（worker processes）。主进程用来读取配置并维护工作进程，工作进程处理请求。</p>
+<h2 id="Nginx配置介绍"><a href="#Nginx配置介绍" class="headerlink" title="Nginx配置介绍"></a>Nginx配置介绍</h2><h3 id="配置文件的结构及指令介绍"><a href="#配置文件的结构及指令介绍" class="headerlink" title="配置文件的结构及指令介绍"></a>配置文件的结构及指令介绍</h3><p>Nginx有各种模块组成，而模块则由配置文件中的各种指令（directives）控制。<code>Directives</code>又分为<code>simple directives</code>和<code>block directives</code>。<br><code>simple directive</code>结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name parameter;</span><br></pre></td></tr></table></figure></p>
+<p><code>block directive</code>结构与<code>simple directive</code>类似，不过不是以<code>;</code>结尾，而是以<code>{}</code>结尾，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /documents/ &#123;</span><br><span class="line">    [ configuration C ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果<code>{}</code>中有其他<code>directives</code>，我们称之为<code>context</code>。<br><code>#</code>后面为注释</p>
+<ul>
+<li><p><strong>location</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语法:	location [ = | ~ | ~* | ^~ ] uri &#123; ... &#125;</span><br><span class="line">location @name &#123; ... &#125;</span><br><span class="line">默认值:	—</span><br><span class="line">Context:	server, location</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>~*</code>（大小写不敏感 ）或<code>~</code>（大小写敏感）——正则匹配<br>  匹配过程：首先使用uri进行前缀匹配，匹配出最长的的location，并记录，假设为location_prefix_longest；然后进行正则匹配检查，假设匹配到的第一个location为location_reg_first，则request路由到该location_reg_first下，如果没有匹配到，则request路由到location_prefix_longest。</li>
+<li><code>^~</code>——前缀匹配<br>  使用uri进行前缀匹配，匹配出最长的的location作为request的路由。</li>
+<li><p><code>=</code>——精确匹配</p>
+<p>举例说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">location = / &#123;</span><br><span class="line">    [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line">location / &#123;</span><br><span class="line">    [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line">location /documents/ &#123;</span><br><span class="line">    [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line">location ^~ /images/ &#123;</span><br><span class="line">    [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">    [ configuration E ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>/</code>请求匹配configuration A，<code>/index.html</code>匹配configuration B，在<code>/documents/document.html</code>匹配configuration C，<code>/images/1.gif</code>匹配configuration D，<code>/documents/1.jpg</code>匹配configuration E。<br><code>@</code>定义了一个命名location，它用于请求重定向。不能嵌套且不能包含嵌套locations。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="默认服务器根目录"><a href="#默认服务器根目录" class="headerlink" title="默认服务器根目录"></a>默认服务器根目录</h3><p>默认服务器根目录为<code>/usr/share/nginx/html</code>，我们在安装nginx步骤进行验证时看到的页面所相关的文件就放置在该目录下，默认服务的配置文件为<code>/etc/nginx/nginx.conf.default</code></p>
 <h3 id="Nginx全局配置文件"><a href="#Nginx全局配置文件" class="headerlink" title="Nginx全局配置文件"></a>Nginx全局配置文件</h3><p>Nginx的全局配置文件为<code>/etc/nginx/nginx.conf</code>，注意它的内容中有一条包含配置<code>include /etc/nginx/conf.d/*.conf;</code>，表明它将<code>/etc/nginx/conf.d</code>目录下所有以<code>.conf</code>结尾的配置文件包含进来，实现配置的扩展。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="noopener">how-to-install-nginx-on-centos-7</a></p>
+<h3 id="在-etc-nginx-conf-d-中添加配置"><a href="#在-etc-nginx-conf-d-中添加配置" class="headerlink" title="在/etc/nginx/conf.d/中添加配置"></a>在/etc/nginx/conf.d/中添加配置</h3><ol>
+<li><p><a href="https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/" target="_blank" rel="noopener">避免使用if指令</a><br> if指令是为rewrite模块设计的（location模块中只有rewrite或return），其他应用不推荐使用。例如：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if ($request_method = POST ) &#123;</span><br><span class="line">  return 405;</span><br><span class="line">&#125;</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">  rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 使用<code>try_files</code>判断文件是否存在。</p>
+</li>
+</ol>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="noopener">how-to-install-nginx-on-centos-7</a></li>
+<li><a href="https://www.nginx.com/resources/wiki/start/#pre-canned-configurations" target="_blank" rel="noopener">Pre-canned Configurations</a></li>
+<li><a href="http://nginx.org/en/docs/beginners_guide.html" target="_blank" rel="noopener">Nginx Beginners’ Guide</a></li>
+</ol>
 
       
     </div>
@@ -526,7 +558,7 @@
   <p><span>本文标题:</span><a href="/2018/02/26/Nginx安装与配置/">Nginx安装与配置</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
   <p><span>发布时间:</span>2018年02月26日 - 15:02</p>
-  <p><span>最后更新:</span>2018年02月26日 - 16:02</p>
+  <p><span>最后更新:</span>2018年02月27日 - 18:02</p>
   <p><span>原始链接:</span><a href="/2018/02/26/Nginx安装与配置/" title="Nginx安装与配置">http://wfwblog.cn/2018/02/26/Nginx安装与配置/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/02/26/Nginx安装与配置/"  aria-label="复制成功！"></i></span>
   </p>
@@ -811,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx配置介绍"><span class="nav-number">2.</span> <span class="nav-text">Nginx配置介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认服务器根目录"><span class="nav-number">2.1.</span> <span class="nav-text">默认服务器根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx全局配置文件"><span class="nav-number">2.2.</span> <span class="nav-text">Nginx全局配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx介绍"><span class="nav-number">2.</span> <span class="nav-text">Nginx介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx配置介绍"><span class="nav-number">3.</span> <span class="nav-text">Nginx配置介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件的结构及指令介绍"><span class="nav-number">3.1.</span> <span class="nav-text">配置文件的结构及指令介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认服务器根目录"><span class="nav-number">3.2.</span> <span class="nav-text">默认服务器根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx全局配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">Nginx全局配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-etc-nginx-conf-d-中添加配置"><span class="nav-number">3.4.</span> <span class="nav-text">在/etc/nginx/conf.d/中添加配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>

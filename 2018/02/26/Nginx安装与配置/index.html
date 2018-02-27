@@ -162,7 +162,7 @@
 <meta property="og:description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/26/Nginx安装与配置/nginxtest.png">
-<meta property="og:updated_time" content="2018-02-27T14:21:24.251Z">
+<meta property="og:updated_time" content="2018-02-27T14:57:47.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx安装与配置">
 <meta name="twitter:description" content="Nginx是一个Http服务器，与传统的服务器不同，Nginx不依赖多线程处理请求，它采用高扩展性的事件驱动型的架构，性能好，稳定，配置简单且资源消耗小。本文介绍nginx的安装与配置。  安装安装环境：CentOS7  安装Nginx仓库 1sudo yum install epel-release  安装Nginx 1sudo yum install nginx  启动Nginx  12sy">
@@ -522,13 +522,28 @@
 <li><p>访问静态内容</p>
 <ul>
 <li>创建目录/data/nginx_www，并添加index.html文件，创建/data/nginx_image，并添加图片<br>songhuiqiao.jpeg</li>
-<li><p><code>cd /etc/nginx/conf.d</code>并chuan创建配置文件<code>static_content.conf</code></p>
+<li><p><code>cd /etc/nginx/conf.d</code>并创建配置文件<code>static_content.conf</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    server &#123;</span><br><span class="line">    listen 8001;</span><br><span class="line">    server_name static_content;</span><br><span class="line">    root /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /data/nginx_www;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    location /nginx_images/ &#123;</span><br><span class="line">        root /data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重新加载nginx配置<code>nginx -s reload</code></p>
 </li>
 <li>开放8001端口<code>firewall-cmd --zone=public --add-port=8001/http --permanent</code></li>
 <li>访问<code>http://ip:8001/</code>和<code>http://ip:8001/nginx_images/songhuiqiao.jpeg</code>，则分别访问的是<code>/data/nginx_www/index.html</code>静态文件和<code>/data/nginx_images/songhuiqiao.jpeg</code>静态文件</li>
+</ul>
+</li>
+<li><p>配置为代理服务器<br> Nginx收到请求后，将请求转发给被代理的服务器，获取到响应之后返给客户端。</p>
+<ul>
+<li>创建目录/data/nginx_proxied，并添加index.html文件</li>
+<li><p><code>cd /etc/nginx/conf.d</code>并修改配置文件<code>static_content.conf</code>为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    server &#123;</span><br><span class="line">    listen 8001;</span><br><span class="line">    server_name static_content;</span><br><span class="line">    root /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /data/nginx_www;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /nginx_images/ &#123;</span><br><span class="line">        root /data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /nginx_proxied/ &#123;</span><br><span class="line">        proxy_pass http://localhost:8002;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即对uri前缀为<code>/nginx_proxied/</code>的请求做代理，被代理地址为<code>http://localhost:8002</code></p>
+</li>
+<li><p>配置被代理服务<br><code>cd /etc/nginx/conf.d</code>并创建配置文件<code>proxied_server.conf</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 8002;</span><br><span class="line">    root /data/nginx_proxied;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    location /nginx_proxied/ &#123;</span><br><span class="line">        root /data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新加载nginx配置文件<code>nginx -s reload</code></p>
+</li>
+<li>访问<code>http:ip:8001/nginx_proxied/</code></li>
 </ul>
 </li>
 </ol>

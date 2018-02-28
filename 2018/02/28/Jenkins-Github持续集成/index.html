@@ -168,7 +168,7 @@
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/addCredentials.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/token.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/test.png">
-<meta property="og:updated_time" content="2018-02-28T14:16:28.940Z">
+<meta property="og:updated_time" content="2018-02-28T14:44:46.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins+Github持续集成">
 <meta name="twitter:description" content="Jenkins安装 安装java环境yum install java 下载Jenkins：wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war并修改权限chmod +x jenkins.war 编写启动脚本jenkins_start.sh  12345678910111213#!/bin/bashNAME=&amp;quot;jenkin">
@@ -497,8 +497,10 @@
 <h3 id="创建一个自由风格任务"><a href="#创建一个自由风格任务" class="headerlink" title="创建一个自由风格任务"></a>创建一个自由风格任务</h3><ol>
 <li>创建新任务，选择自由风格的任务</li>
 <li>选择GitHub project，填写Project url</li>
-<li>源码管理，选择Git，Add Credentials（使用GitHub的用户名和密码），选择<code>githubweb</code>源码浏览器，并填写项目url<h3 id="构建触发器"><a href="#构建触发器" class="headerlink" title="构建触发器"></a>构建触发器</h3>勾选<code>GitHub hook trigger for GITScm polling</code><h3 id="配置GitHub仓库的Webhooks"><a href="#配置GitHub仓库的Webhooks" class="headerlink" title="配置GitHub仓库的Webhooks"></a>配置GitHub仓库的Webhooks</h3>进入要监控的仓库，Settings &gt;&gt; Webhooks，<code>Add webhook</code></li>
+<li>源码管理，选择Git，Add Credentials（使用GitHub的用户名和密码），选择<code>githubweb</code>源码浏览器，并填写项目url</li>
 </ol>
+<h3 id="构建触发器"><a href="#构建触发器" class="headerlink" title="构建触发器"></a>构建触发器</h3><p>勾选<code>GitHub hook trigger for GITScm polling</code></p>
+<h3 id="配置GitHub仓库的Webhooks"><a href="#配置GitHub仓库的Webhooks" class="headerlink" title="配置GitHub仓库的Webhooks"></a>配置GitHub仓库的Webhooks</h3><p>进入要监控的仓库，Settings &gt;&gt; Webhooks，<code>Add webhook</code></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
 <li><a href="https://wiki.jenkins.io/display/JENKINS/Github%20Plugin" target="_blank" rel="noopener">Github Plugin</a></li>
 <li><a href="https://www.jianshu.com/p/b2ed4d23a3a9" target="_blank" rel="noopener">Jenkins+Github持续集成</a></li>

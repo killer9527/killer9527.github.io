@@ -168,7 +168,7 @@
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/addCredentials.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/token.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/test.png">
-<meta property="og:updated_time" content="2018-03-01T01:14:46.376Z">
+<meta property="og:updated_time" content="2018-03-01T01:23:38.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins+Github持续集成">
 <meta name="twitter:description" content="Jenkins安装 安装java环境yum install java 下载Jenkins：wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war并修改权限chmod +x jenkins.war 编写启动脚本jenkins_start.sh  12345678910111213#!/bin/bashNAME=&amp;quot;jenkin">
@@ -500,7 +500,8 @@
 <li>源码管理，选择Git，Add Credentials（使用GitHub的用户名和密码），选择<code>githubweb</code>源码浏览器，并填写项目url</li>
 </ol>
 <h3 id="构建触发器"><a href="#构建触发器" class="headerlink" title="构建触发器"></a>构建触发器</h3><p>勾选<code>GitHub hook trigger for GITScm polling</code></p>
-<h3 id="使用shell将blog自动发布到指定目录"><a href="#使用shell将blog自动发布到指定目录" class="headerlink" title="使用shell将blog自动发布到指定目录"></a>使用shell将blog自动发布到指定目录</h3><h3 id="配置GitHub仓库的Webhooks"><a href="#配置GitHub仓库的Webhooks" class="headerlink" title="配置GitHub仓库的Webhooks"></a>配置GitHub仓库的Webhooks</h3><p>进入要监控的仓库，Settings &gt;&gt; Webhooks，<code>Add webhook</code></p>
+<h3 id="使用shell将blog自动发布到指定目录"><a href="#使用shell将blog自动发布到指定目录" class="headerlink" title="使用shell将blog自动发布到指定目录"></a>使用shell将blog自动发布到指定目录</h3><p>构建 &gt;&gt; 增加构建步骤 &gt;&gt; Execute shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo $JENKINS_HOME</span><br><span class="line">cd $JENKINS_HOME</span><br><span class="line">cp -rf hexo-blog /data/nginx_github</span><br><span class="line">echo &quot;deploy success!&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置GitHub仓库的Webhooks"><a href="#配置GitHub仓库的Webhooks" class="headerlink" title="配置GitHub仓库的Webhooks"></a>配置GitHub仓库的Webhooks</h3><p>进入要监控的仓库，Settings &gt;&gt; Webhooks，<code>Add webhook</code></p>
 <p>完成以上步骤之后，如果对被监控的仓库有push操作，则会触发Jenkins从git上拉取代码并进行build。</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
 <li><a href="https://wiki.jenkins.io/display/JENKINS/Github%20Plugin" target="_blank" rel="noopener">Github Plugin</a></li>

@@ -168,7 +168,7 @@
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/addCredentials.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/token.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/test.png">
-<meta property="og:updated_time" content="2018-03-02T09:46:13.155Z">
+<meta property="og:updated_time" content="2018-03-02T10:02:58.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins+Github持续集成">
 <meta name="twitter:description" content="Github作为代码仓储可以控制代码的版本迭代，而Jenkins是一种持续集成工具，可用于代码的编译和发布，当push代码到GitHub仓库之后，我们希望能够自动触发Jenkins从GitHub拉取代码，然后进行编译和发布。  Jenkins安装 安装java环境yum install java 下载Jenkins：wget http://mirrors.jenkins.io/war-stabl">
@@ -507,7 +507,7 @@
 <h3 id="配置GitHub仓库的Webhooks"><a href="#配置GitHub仓库的Webhooks" class="headerlink" title="配置GitHub仓库的Webhooks"></a>配置GitHub仓库的Webhooks</h3><p>进入要监控的仓库，Settings &gt;&gt; Webhooks，<code>Add webhook</code></p>
 <p>完成以上步骤之后，如果对被监控的仓库有push操作，则会触发Jenkins从git上拉取代码并进行build。则程序会发布到指定目录<code>/data/nginx_github</code>，然后就可以通过配置nginx访问了。</p>
 <h2 id="Maven编译并远程发布"><a href="#Maven编译并远程发布" class="headerlink" title="Maven编译并远程发布"></a>Maven编译并远程发布</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><ol>
-<li><p>目标计算机上配置SSH（root账号登录）<br>id_rsa.pub里面的内容是需要附加到你要远程连接的服务器上的用户的家目录下的.ssh目录下的authorized_keys的。在认证时，客户端会使用私钥对服务器发来的一些数据进行加密。而服务器端使用公钥钥解密，如果成功就直接认证通过。</p>
+<li><p>Jenkins服务器和目标计算机上配置SSH（root账号登录）<br>id_rsa.pub里面的内容是需要附加到你要远程连接的服务器上的用户的家目录下的.ssh目录下的authorized_keys的。在认证时，客户端会使用私钥对服务器发来的一些数据进行加密。而服务器端使用公钥钥解密，如果成功就直接认证通过。</p>
 <ul>
 <li>生成ssh的公钥和私钥：<code>ssh-keygen -t rsa</code>，会提示输入：密钥存放位置（直接回车，默认在<code>/root/.ssh/</code>目录）、密码短语、重复密码短语。完成后在<code>/root/.ssh/</code>目录下生成了2个文件：<code>id_rsa</code>为私钥，<code>id_rsa.pub</code>为公钥</li>
 <li>导入公钥：<code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></li>
@@ -522,6 +522,7 @@
 <li>测试：ssh localhost</li>
 </ul>
 </li>
+<li>将Jenkins服务器上的公钥内容添加到目标计算机的authorized_keys中。</li>
 <li>安装Publish Over SSH插件并配置<ul>
 <li>系统管理 &gt;&gt; 管理插件 &gt;&gt; 可选插件，直接安装</li>
 <li>系统管理 &gt;&gt; 系统配置，找到Publish over SSH的配置<ul>
@@ -585,7 +586,7 @@
   <p><span>本文标题:</span><a href="/2018/02/28/Jenkins-Github持续集成/">Jenkins+Github持续集成</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
   <p><span>发布时间:</span>2018年02月28日 - 14:02</p>
-  <p><span>最后更新:</span>2018年03月02日 - 17:03</p>
+  <p><span>最后更新:</span>2018年03月02日 - 18:03</p>
   <p><span>原始链接:</span><a href="/2018/02/28/Jenkins-Github持续集成/" title="Jenkins+Github持续集成">http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/02/28/Jenkins-Github持续集成/"  aria-label="复制成功！"></i></span>
   </p>

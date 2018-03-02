@@ -461,10 +461,12 @@
       
         
           
-          Jenkins安装
+          
+Github作为代码仓储可以控制代码的版本迭代，而Jenkins是一种持续集成工具，可用于代码的编译和发布，当push代码到GitHub仓库之后，我们希望能够自动触发Jenkins从GitHub拉取代码，然后进行编译和发布。
+
+Jenkins安装
 安装java环境yum install java
-下载Jenkins：wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war并修改权限chmod +x jenkins.war
-编写启动脚本jenkins_start
+
           ...
           <!--noindex-->
           <div class="post-button text-center">

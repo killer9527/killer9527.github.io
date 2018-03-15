@@ -154,19 +154,21 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SpringBoot,微服务," />
 
 
-<meta name="description" content="知识需要传播和分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Siri咔咔">
-<meta property="og:url" content="http://wfwblog.cn/archives/2018/02/index.html">
+<meta name="description" content="现在开发项目很多都采用前后端分离的模式，后端提供Restful接口，前端进行对接。提供详细的接口说明问题可以简化前后端对接步骤，提高工作效率，而Swagger为我们提供了自动生成接口说明文档的功能，且提供了可视化ui，非常方便。本文介绍如何在SpringBoot中集成Swagger及相关的优化配置。  引入Swagger pom.xml文件添加第三方jar包 12345678910&amp;lt;dep">
+<meta name="keywords" content="SpringBoot,微服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot系列（二）——集成Swagger">
+<meta property="og:url" content="http://wfwblog.cn/2018/03/15/SpringBoot系列（二）——集成Swagger/index.html">
 <meta property="og:site_name" content="Siri咔咔">
-<meta property="og:description" content="知识需要传播和分享">
+<meta property="og:description" content="现在开发项目很多都采用前后端分离的模式，后端提供Restful接口，前端进行对接。提供详细的接口说明问题可以简化前后端对接步骤，提高工作效率，而Swagger为我们提供了自动生成接口说明文档的功能，且提供了可视化ui，非常方便。本文介绍如何在SpringBoot中集成Swagger及相关的优化配置。  引入Swagger pom.xml文件添加第三方jar包 12345678910&amp;lt;dep">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-15T14:27:15.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Siri咔咔">
-<meta name="twitter:description" content="知识需要传播和分享">
+<meta name="twitter:title" content="SpringBoot系列（二）——集成Swagger">
+<meta name="twitter:description" content="现在开发项目很多都采用前后端分离的模式，后端提供Restful接口，前端进行对接。提供详细的接口说明问题可以简化前后端对接步骤，提高工作效率，而Swagger为我们提供了自动生成接口说明文档的功能，且提供了可视化ui，非常方便。本文介绍如何在SpringBoot中集成Swagger及相关的优化配置。  引入Swagger pom.xml文件添加第三方jar包 12345678910&amp;lt;dep">
 
 
 
@@ -175,7 +177,7 @@
 
 
 
-  <link rel="canonical" href="http://wfwblog.cn/archives/2018/02/"/>
+  <link rel="canonical" href="http://wfwblog.cn/2018/03/15/SpringBoot系列（二）——集成Swagger/"/>
 
 
 
@@ -184,7 +186,7 @@
     sidebar: "",
   };
 </script>
-  <title>归档 | Siri咔咔</title>
+  <title>SpringBoot系列（二）——集成Swagger | Siri咔咔</title>
   
 
 
@@ -241,7 +243,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -356,228 +358,308 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wfwblog.cn/2018/03/15/SpringBoot系列（二）——集成Swagger/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="siri-kk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siri咔咔">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">SpringBoot系列（二）——集成Swagger</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T21:43:40+08:00">2018-03-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 7 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/微服务/" itemprop="url" rel="index"><span itemprop="name">微服务</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/28/Jenkins-Github持续集成/" itemprop="url">
-              
-                <span itemprop="name">Jenkins+Github持续集成</span>
-              
-            </a>
-        
-      </h2>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T14:05:37+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/26/Nginx安装与配置/" itemprop="url">
-              
-                <span itemprop="name">Nginx安装与配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-26T15:27:44+08:00"
-              content="2018-02-26" >
-          02-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/24/Hexo-Github搭建自己的博客（三）/" itemprop="url">
-              
-                <span itemprop="name">Hexo+Github搭建自己的博客（三）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-24T17:35:42+08:00"
-              content="2018-02-24" >
-          02-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>现在开发项目很多都采用前后端分离的模式，后端提供Restful接口，前端进行对接。提供详细的接口说明问题可以简化前后端对接步骤，提高工作效率，而Swagger为我们提供了自动生成接口说明文档的功能，且提供了可视化ui，非常方便。本文介绍如何在SpringBoot中集成Swagger及相关的优化配置。</p>
+</blockquote>
+<h2 id="引入Swagger"><a href="#引入Swagger" class="headerlink" title="引入Swagger"></a>引入Swagger</h2><ol>
+<li><p>pom.xml文件添加第三方jar包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加配置文件<br>在包config下，新建文件<code>SwaggerConfig.java</code>，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableSwagger2</span><br><span class="line">public class SwaggerConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public Docket restfulApi()&#123;</span><br><span class="line">        return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .genericModelSubstitutes(DeferredResult.class)</span><br><span class="line">                .useDefaultResponseMessages(true)</span><br><span class="line">                .forCodeGeneration(true)</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(&quot;com.wfw.controller&quot;))</span><br><span class="line">                .build().globalOperationParameters(GetHeader())</span><br><span class="line">                .apiInfo(initApiInfo());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private List&lt;Parameter&gt; GetHeader() &#123;</span><br><span class="line">        ParameterBuilder token = new ParameterBuilder();</span><br><span class="line">        List&lt;Parameter&gt; parameters = new ArrayList&lt;&gt;();</span><br><span class="line">        token.name(&quot;X-Request-Token&quot;).description(&quot;Token&quot;).modelRef(new ModelRef(&quot;string&quot;)).parameterType(&quot;header&quot;).required(false).build();</span><br><span class="line">        parameters.add(token.build());</span><br><span class="line">        return parameters;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ApiInfo initApiInfo() &#123;</span><br><span class="line">        ApiInfo apiInfo = new ApiInfoBuilder()</span><br><span class="line">                .title(&quot;SpringBoot Demo后端WebAPI&quot;)</span><br><span class="line">                .description(initContextInfo())</span><br><span class="line">                .version(&quot;1.0&quot;)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        return apiInfo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private String initContextInfo() &#123;</span><br><span class="line">        StringBuffer sb = new StringBuffer();</span><br><span class="line">        sb.append(&quot;REST API 设计在细节上有很多自己独特的需要注意的技巧，并且对开发人员在构架设计能力上比传统 API 有着更高的要求。&quot;).append(&quot;&lt;br/&gt;&quot;)</span><br><span class="line">                .append(&quot;以下是本项目的API文档&quot;);</span><br><span class="line">        return sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>@Configuration表明该类为IOC容器的配置类。且该配置类为Swagger中每个接口的header提供了一个名为<code>X-Request-Token</code>的参数，便于传递token参数。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>我们介绍常用的注解，详细使用说明见<strong>参考文章1</strong></p>
+<ul>
+<li><p>在Controller上使用@Api注释该Controller的相关信息，例如：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Api(value = &quot;GreetingController&quot;, description = &quot;GreetingController描述&quot;)</span><br><span class="line">public class GreetingController extends BaseController &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在接口方法上使用@ApiOperation注释该接口的说明信息，例如：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@ApiOperation(value = &quot;使用Get方法greeting&quot;)</span><br><span class="line">    public GreetingResponseVO greetingByGet(@RequestParam(value=&quot;name&quot;, defaultValue=&quot;World&quot;) String name)&#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用@ApiModel和@ApiModelProperty对数据模型结构进行说明，例如：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@ApiModel(value = &quot;GreetingResponseVO&quot;, description = &quot;Greeting响应&quot;)</span><br><span class="line">public class GreetingResponseVO extends BaseResponseVO &#123;</span><br><span class="line">    @ApiModelProperty(value = &quot;id&quot;)</span><br><span class="line">    private long id;</span><br><span class="line">    @ApiModelProperty(value = &quot;内容&quot;)</span><br><span class="line">    private String content;</span><br><span class="line"></span><br><span class="line">    public long getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setId(long id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getContent() &#123;</span><br><span class="line">        return content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setContent(String content) &#123;</span><br><span class="line">        this.content = content;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务，浏览器中：<a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a></p>
+</li>
+</ul>
+<h2 id="解决Swagger参数无法传输换行字符串的问题"><a href="#解决Swagger参数无法传输换行字符串的问题" class="headerlink" title="解决Swagger参数无法传输换行字符串的问题"></a>解决Swagger参数无法传输换行字符串的问题</h2><p>如果直接拷贝了一长串换行文本传入接口参数中，会提示如下错误：</p>
+<blockquote>
+<p>org.codehaus.jackson.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 9)): has to be escaped using backslash to be included in string value<br>at [Source: java.io.StringReader@10cfc2e3; line: 1, column: 2461]<br>这是因为传输的json参数中含有转义字符，而框架使用jackson未对其进行转换。</p>
+</blockquote>
+<p>解决方法：</p>
+<ol>
+<li><p>pom.xml引入第三方jar包</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.15&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>包config中添加配置类<code>JsonConfig</code>，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class JsonConfig implements WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configureMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters) &#123;</span><br><span class="line">        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();</span><br><span class="line">        FastJsonConfig fastJsonConfig = new FastJsonConfig();</span><br><span class="line"></span><br><span class="line">        fastJsonConfig.setSerializerFeatures(</span><br><span class="line">                SerializerFeature.PrettyFormat</span><br><span class="line">        );</span><br><span class="line">        fastConverter.setFastJsonConfig(fastJsonConfig);</span><br><span class="line"></span><br><span class="line">        converters.add(fastConverter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://www.jianshu.com/p/12f4394462d5" target="_blank" rel="noopener">swagger常用注解说明</a></li>
+<li><a href="http://blog.csdn.net/f429629227/article/details/74506212" target="_blank" rel="noopener">springboot接收JSON时发生转义字符绑定对象失败</a></li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/23/Hexo-Github搭建自己的博客（二）/" itemprop="url">
-              
-                <span itemprop="name">Hexo+Github搭建自己的博客（二）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-23T18:26:04+08:00"
-              content="2018-02-23" >
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/23/Hexo-Github搭建自己的博客（一）/" itemprop="url">
-              
-                <span itemprop="name">Hexo+Github搭建自己的博客（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-23T15:41:49+08:00"
-              content="2018-02-23" >
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+	
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+	
+	
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/15/SpringBoot系列（二）——集成Swagger/">SpringBoot系列（二）——集成Swagger</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
+  <p><span>发布时间:</span>2018年03月15日 - 21:03</p>
+  <p><span>最后更新:</span>2018年03月15日 - 22:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/15/SpringBoot系列（二）——集成Swagger/" title="SpringBoot系列（二）——集成Swagger">http://wfwblog.cn/2018/03/15/SpringBoot系列（二）——集成Swagger/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/03/15/SpringBoot系列（二）——集成Swagger/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      </div>
+    
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>多谢支持，共同进步！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/微信打赏.jpg" alt="siri-kk 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/支付宝打赏.jpg" alt="siri-kk 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+          
+            <a href="/tags/微服务/" rel="tag"><i class="fa fa-tag"></i> 微服务</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/" rel="next" title="SpringBoot系列（一）——搭建SpringBoot框架">
+                <i class="fa fa-chevron-left"></i> SpringBoot系列（一）——搭建SpringBoot框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDMxOC8xMDg1NQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -598,8 +680,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -739,6 +830,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入Swagger"><span class="nav-number">1.</span> <span class="nav-text">引入Swagger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决Swagger参数无法传输换行字符串的问题"><span class="nav-number">3.</span> <span class="nav-text">解决Swagger参数无法传输换行字符串的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -898,6 +1005,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.4"></script>
+
+
 
   
 
@@ -922,6 +1033,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

@@ -167,7 +167,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/category.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/start.png">
-<meta property="og:updated_time" content="2018-03-13T10:16:55.794Z">
+<meta property="og:updated_time" content="2018-03-13T14:16:12.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot系列（一）——搭建SpringBoot框架">
 <meta name="twitter:description" content="SpringBoot可以使你快速构建基于Spring的应用服务，它集成了Spring平台和第三方库，功能可插拔，将很多配置做了默认处理（习惯优于配置），只需要很少的Spring配置。本文对SpringBoot做简要介绍，并基于SpringBoot快速构建Web服务。  一、SpringBoot特点 快速构建独立运行的Spring服务 内嵌tomcat，无需部署war包 提供spring-boot">
@@ -532,7 +532,7 @@
 <li>@Configuration：将<code>SpringBootDemoSingleApplication</code>标记为应用程序上下文的bean定义类</li>
 <li>@EnableAutoConfiguration：告诉SpringBoot在启动时根据classpath配置，其他beans和各种属性配置添加beans</li>
 <li>@EnableWebMvc：SpringBoot在classpath中检测到<code>spring-webmvc</code>时自动添加了@EnableWebMvc，它将程序标记为Web服务并执行关键步骤，比如设置<code>DispatcherServlet</code></li>
-<li><p>@ComponentScan：告诉Spring寻找其他组件，配置和hello中的服务，使其寻找Controller</p>
+<li><p>@ComponentScan：告诉Spring寻找其他组件，配置和hello中的服务，使其寻找Controller。将标注了元信息Annotation的bean定义类批量采集到Spring的IOC容器中，如果不指定其basePackages属性，则Spring框架默认会从声明@ComponentScan所在类的package进行扫描，即<code>com.wfw</code></p>
 <p>使用maven编译：<code>mvnw clean package</code><br>执行jar包：java -jar target/SpringBoot-demo.jar</p>
 <p>或者直接在Intellij IEEA中启动<br><img src="/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/start.png" alt="start.png"></p>
 </li>
@@ -583,7 +583,7 @@
   <p><span>本文标题:</span><a href="/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/">SpringBoot系列（一）——搭建SpringBoot框架</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
   <p><span>发布时间:</span>2018年03月12日 - 22:03</p>
-  <p><span>最后更新:</span>2018年03月13日 - 18:03</p>
+  <p><span>最后更新:</span>2018年03月13日 - 22:03</p>
   <p><span>原始链接:</span><a href="/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/" title="SpringBoot系列（一）——搭建SpringBoot框架">http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/"  aria-label="复制成功！"></i></span>
   </p>
@@ -670,6 +670,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/03/15/SpringBoot系列（二）——集成Swagger/" rel="prev" title="SpringBoot系列（二）——集成Swagger">
+                SpringBoot系列（二）——集成Swagger <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -751,7 +755,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

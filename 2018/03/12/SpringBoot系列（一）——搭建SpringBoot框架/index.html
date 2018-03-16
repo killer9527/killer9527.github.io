@@ -167,7 +167,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/category.png">
 <meta property="og:image" content="http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/start.png">
-<meta property="og:updated_time" content="2018-03-15T14:51:11.379Z">
+<meta property="og:updated_time" content="2018-03-16T02:22:48.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot系列（一）——搭建SpringBoot框架">
 <meta name="twitter:description" content="SpringBoot可以使你快速构建基于Spring的应用服务，它集成了Spring平台和第三方库，功能可插拔，将很多配置做了默认处理（习惯优于配置），只需要很少的Spring配置。本文对SpringBoot做简要介绍，并基于SpringBoot快速构建Web服务。  一、SpringBoot特点 快速构建独立运行的Spring服务 内嵌tomcat，无需部署war包 提供spring-boot">
@@ -540,7 +540,7 @@
 </li>
 </ol>
 <h2 id="配置文件解析"><a href="#配置文件解析" class="headerlink" title="配置文件解析"></a>配置文件解析</h2><p>搭建好SpringBoot后，会自动生成一个全局的配置文件<code>application.properties</code>。也可以自定义配置文件，例如我们在resources目录下新建目录config用于存放我们的自定义配置文件。可以定义一个配置类，用于IoC容器注册和收集我们的配置项。</p>
-<ol>
+<h3 id="自定义配置及引用"><a href="#自定义配置及引用" class="headerlink" title="自定义配置及引用"></a>自定义配置及引用</h3><ol>
 <li><p>创建自定义配置文件<br>假设我们自定义的配置文件config1.properties和config2.properties内容分别为：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># config1.properties内容</span><br><span class="line">config1.username=killer9527</span><br><span class="line"># config2.properties内容</span><br><span class="line">config2.password=123456</span><br></pre></td></tr></table></figure>
 </li>
@@ -556,6 +556,19 @@
 <blockquote>
 <p>Properties added in this way have lower priority than any added by<br>using the default locations (such as application.properties), system properties, environment variables, or the command line</p>
 </blockquote>
+<h3 id="配置随机值"><a href="#配置随机值" class="headerlink" title="配置随机值"></a>配置随机值</h3><p>配置文件中${random} 可以用来生成各种不同类型的随机值，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">my.secret=$&#123;random.value&#125;</span><br><span class="line">my.number=$&#123;random.int&#125;</span><br><span class="line">my.bignumber=$&#123;random.long&#125;</span><br><span class="line">my.uuid=$&#123;random.uuid&#125;</span><br><span class="line">my.number.less.than.ten=$&#123;random.int(10)&#125;</span><br><span class="line">my.number.in.range=$&#123;random.int[1024,65536]&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="命令行参数配置"><a href="#命令行参数配置" class="headerlink" title="命令行参数配置"></a>命令行参数配置</h3><p>比如：<code>java -jar xx.jar --server.port=9090</code>。命令行中连续的两个减号–就是对application.properties中的属性值进行赋值的标识。</p>
+<h3 id="Profile-多环境配置"><a href="#Profile-多环境配置" class="headerlink" title="Profile-多环境配置"></a>Profile-多环境配置</h3><p>开发过程中，我们针对不同的开发环境相应的会有不同的配置，如果各种开发环境都使用同一个配置文件，那么我们每次发布时，都需要修改相应的配置，很繁琐。SpringBoot的profile针对这个问题专门实现了多环境配置选择配置文件的功能，多环境配置文件名需要满足application-{profile}.properties的格式，其中{profile}对应你的环境标识。具体实现步骤如下：</p>
+<ol>
+<li><p>创建各种开发环境配置文件<br>我们分三个环境：develop，release和online，分别对应的配置文件为<code>application-develop.properties</code>，<code>application-release.properties</code>和<code>application-online.properties</code>，为了测试，内容分别为：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># application-develop.properties内容</span><br><span class="line">server.port=8080</span><br><span class="line">profile.property=develop</span><br><span class="line"># application-release.properties内容</span><br><span class="line">server.port=8081</span><br><span class="line">profile.property=release</span><br><span class="line"># application-online.properties内容</span><br><span class="line">server.port=8082</span><br><span class="line">profile.property=online</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>application.properties</code>中通过配置<code>spring.profiles.active</code>变量选择配置文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># application.properties内容</span><br><span class="line">spring.profiles.active=online</span><br></pre></td></tr></table></figure>
+<p> 也可以通过命令行参数配置<code>spring.profiles.active</code>变量来实现配置的选择</p>
+</li>
+</ol>
+<p>你可以启动SpringBoot，看看需要用哪个端口访问。</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
 <li><a href="http://tengj.top/2017/04/24/springboot0/" target="_blank" rel="noopener">Spring Boot干货系列总纲</a></li>
 <li><a href="http://blog.didispace.com/categories/Spring-Boot/page/4/" target="_blank" rel="noopener">程序猿DD-Spring Boot系列</a></li>
@@ -566,8 +579,8 @@
 <li><a href="http://www.jianshu.com/p/7e2e5e7b32ab" target="_blank" rel="noopener">杜琪关于Spring Boot的博客集合</a></li>
 <li><a href="http://www.bysocket.com/?page_id=1639" target="_blank" rel="noopener">泥瓦匠BYSocket的Spring Boot系列</a></li>
 <li><a href="http://blog.csdn.net/liutengteng130/article/details/46991829" target="_blank" rel="noopener">Maven中dependencies与dependencyManagement的区别</a></li>
+<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_blank" rel="noopener">application.properties常见配置属性</a></li>
 </ol>
-<p>[^]: </p>
 
       
     </div>
@@ -600,7 +613,7 @@
   <p><span>本文标题:</span><a href="/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/">SpringBoot系列（一）——搭建SpringBoot框架</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
   <p><span>发布时间:</span>2018年03月12日 - 22:03</p>
-  <p><span>最后更新:</span>2018年03月15日 - 22:03</p>
+  <p><span>最后更新:</span>2018年03月16日 - 10:03</p>
   <p><span>原始链接:</span><a href="/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/" title="SpringBoot系列（一）——搭建SpringBoot框架">http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/03/12/SpringBoot系列（一）——搭建SpringBoot框架/"  aria-label="复制成功！"></i></span>
   </p>
@@ -903,7 +916,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、SpringBoot特点"><span class="nav-number">1.</span> <span class="nav-text">一、SpringBoot特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、快速搭建Web服务"><span class="nav-number">2.</span> <span class="nav-text">二、快速搭建Web服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置pom-xml"><span class="nav-number">2.2.</span> <span class="nav-text">配置pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建Restful风格接口"><span class="nav-number">2.3.</span> <span class="nav-text">构建Restful风格接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件解析"><span class="nav-number">3.</span> <span class="nav-text">配置文件解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、SpringBoot特点"><span class="nav-number">1.</span> <span class="nav-text">一、SpringBoot特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、快速搭建Web服务"><span class="nav-number">2.</span> <span class="nav-text">二、快速搭建Web服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置pom-xml"><span class="nav-number">2.2.</span> <span class="nav-text">配置pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建Restful风格接口"><span class="nav-number">2.3.</span> <span class="nav-text">构建Restful风格接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件解析"><span class="nav-number">3.</span> <span class="nav-text">配置文件解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置及引用"><span class="nav-number">3.1.</span> <span class="nav-text">自定义配置及引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置随机值"><span class="nav-number">3.2.</span> <span class="nav-text">配置随机值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行参数配置"><span class="nav-number">3.3.</span> <span class="nav-text">命令行参数配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Profile-多环境配置"><span class="nav-number">3.4.</span> <span class="nav-text">Profile-多环境配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>

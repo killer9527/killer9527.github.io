@@ -69,9 +69,9 @@
       <category term="Spring" scheme="http://wfwblog.cn/categories/Spring/"/>
     
     
-      <category term="java" scheme="http://wfwblog.cn/tags/java/"/>
-    
       <category term="Spring" scheme="http://wfwblog.cn/tags/Spring/"/>
+    
+      <category term="java" scheme="http://wfwblog.cn/tags/java/"/>
     
       <category term="SpringFactoriesLoader" scheme="http://wfwblog.cn/tags/SpringFactoriesLoader/"/>
     

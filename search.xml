@@ -20,8 +20,8 @@
         <category>Spring</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>Spring</tag>
+        <tag>java</tag>
         <tag>SpringFactoriesLoader</tag>
       </tags>
   </entry>

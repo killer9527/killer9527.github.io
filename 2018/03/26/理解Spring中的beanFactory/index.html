@@ -166,7 +166,7 @@
 <meta property="og:description" content="IOC（Inversion of Control）即“控制反转”，是一种思想，将创建对象的权利交给框架（或容器）。而DI（Dependency Injection）即依赖注入是其实现的一种方式，还包括DL（Dependency Lookup）即依赖查找。   由来Interface Driven Design即接口驱动可以提供灵活的子类实现，但接口一定要实现。假设定义了接口AInterface">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wfwblog.cn/2018/03/26/理解Spring中的beanFactory/hierarchy.png">
-<meta property="og:updated_time" content="2018-03-30T03:03:54.320Z">
+<meta property="og:updated_time" content="2018-03-30T03:35:53.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解Spring中的beanFactory">
 <meta name="twitter:description" content="IOC（Inversion of Control）即“控制反转”，是一种思想，将创建对象的权利交给框架（或容器）。而DI（Dependency Injection）即依赖注入是其实现的一种方式，还包括DL（Dependency Lookup）即依赖查找。   由来Interface Driven Design即接口驱动可以提供灵活的子类实现，但接口一定要实现。假设定义了接口AInterface">
@@ -508,7 +508,7 @@
 <li>单例模式并且是非延迟加载的对象，会在IOC容器初始化的时候被创建且初始化</li>
 <li>非单例模式或者是延迟加载的对象，是应用第一次向容器索要该Bean对象的时候被创建且初始化</li>
 </ul>
-<p>看一下<code>refresh()</code>方法中，在完成beanDefinition的注册之后，调用了<code>finishBeanFactoryInitialization(beanFactory)</code>方法，该方法完成应用程序上下文中beanFactory的初始化，初始化所有单例模式的bean对象。而该方法通过调用beanFactory的<code>preInstantiateSingletons()</code>方法完成实例化。<br><strong>参考文章10</strong>详细讲述了bean是如何被创建和注入的。</p>
+<p>看一下<code>refresh()</code>方法中，在完成beanDefinition的注册之后，调用了<code>finishBeanFactoryInitialization(beanFactory)</code>方法，该方法完成应用程序上下文中beanFactory的初始化，初始化所有单例模式的bean对象。而该方法通过调用beanFactory的<code>preInstantiateSingletons()</code>方法完成实例化。<br><strong>参考文章10</strong>详细讲述了bean是如何被创建和依赖注入的。</p>
 <p>最后说一下refresh()方法是在什么时候被调用的，在SpringBoot启动的run方法中，有一个<code>refreshContext(context)</code>的方法调用，跟一下就可以看到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">protected void refresh(ApplicationContext applicationContext) &#123;</span><br><span class="line">	Assert.isInstanceOf(AbstractApplicationContext.class, applicationContext);</span><br><span class="line">	((AbstractApplicationContext) applicationContext).refresh();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
 <li><a href="https://blog.csdn.net/u011202334/article/details/51509235" target="_blank" rel="noopener">spring中的BeanFactory与ApplicationContext的作用和区别</a></li>
@@ -641,6 +641,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/04/01/Java构造函数初始化/" rel="prev" title="Java构造函数初始化">
+                Java构造函数初始化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -722,7 +726,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -788,7 +792,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

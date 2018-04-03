@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wfwblog.cn/"/>
-  <updated>2018-04-01T03:36:14.900Z</updated>
+  <updated>2018-04-03T03:18:22.389Z</updated>
   <id>http://wfwblog.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot系列（二五（五）——全局异常处理</title>
+    <link href="http://wfwblog.cn/2018/04/03/SpringBoot%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    <id>http://wfwblog.cn/2018/04/03/SpringBoot系列（五）——全局异常处理/</id>
+    <published>2018-04-03T03:05:59.000Z</published>
+    <updated>2018-04-03T03:18:22.389Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><blockquote><p>对于代码中未捕获的异常，需要有一个全局异常处理器。</p></blockquote></blockquote><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@RestControllerAdvice</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line">    private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(&#123;Exception.class&#125;)</span><br><span class="line">    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">    public BaseResponseVO unknownException(Exception e) &#123;</span><br><span class="line">        this.logger.error(String.format(&quot;Global catch unknown exception , message: %s&quot;, e.getMessage()), e);</span><br><span class="line">        BaseResponseVO result = new BaseResponseVO();</span><br><span class="line">        result.setMessage(&quot;服务器错误&quot;);</span><br><span class="line">        result.setResult(false);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>将异常记录到日志中</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(path = &quot;testGlobalExceptionHandler&quot;, method = RequestMethod.GET)</span><br><span class="line">@ApiOperation(value = &quot;测试全局异常处理&quot;)</span><br><span class="line">public BaseResponseVO testGlobalExceptionHandler() throws Exception&#123;</span><br><span class="line">    throw new Exception(&quot;this is a global exception handler test&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于代码中未捕获的异常，需要有一个全局异常处理器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实
+      
+    
+    </summary>
+    
+      <category term="微服务" scheme="http://wfwblog.cn/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="SpringBoot" scheme="http://wfwblog.cn/tags/SpringBoot/"/>
+    
+      <category term="微服务" scheme="http://wfwblog.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Java构造函数初始化</title>

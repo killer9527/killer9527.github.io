@@ -157,18 +157,18 @@
   <meta name="keywords" content="SpringBoot,微服务," />
 
 
-<meta name="description" content="日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。  引入logback在pom.xml文件中，添加包引用：123456789101112&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;">
+<meta name="description" content="日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。">
 <meta name="keywords" content="SpringBoot,微服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpSpringBoot系列（二t系列（三）——日志记录">
 <meta property="og:url" content="http://wfwblog.cn/2018/03/16/SpringBoot系列（三）——日志记录/index.html">
 <meta property="og:site_name" content="Siri咔咔">
-<meta property="og:description" content="日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。  引入logback在pom.xml文件中，添加包引用：123456789101112&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;">
+<meta property="og:description" content="日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-18T03:05:58.083Z">
+<meta property="og:updated_time" content="2018-04-09T07:22:44.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpSpringBoot系列（二t系列（三）——日志记录">
-<meta name="twitter:description" content="日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。  引入logback在pom.xml文件中，添加包引用：123456789101112&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;">
+<meta name="twitter:description" content="日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。">
 
 
 
@@ -469,6 +469,7 @@
         <blockquote>
 <p>日志在项目开发过程中及服务部署后对于解决问题起着至关重要的作用，本章介绍如何在SpringBoot中使用logback将日志记录到文件或RabbitMQ中。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="引入logback"><a href="#引入logback" class="headerlink" title="引入logback"></a>引入logback</h3><p>在pom.xml文件中，添加包引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.amqp&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-amqp&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.amqp&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-rabbit&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
 <p>使用默认版本。</p>
 <h3 id="添加配置文件logback-xml"><a href="#添加配置文件logback-xml" class="headerlink" title="添加配置文件logback.xml"></a>添加配置文件logback.xml</h3><ol>
@@ -526,7 +527,7 @@
   <p><span>本文标题:</span><a href="/2018/03/16/SpringBoot系列（三）——日志记录/">SpSpringBoot系列（二t系列（三）——日志记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 siri-kk 的个人博客">siri-kk</a></p>
   <p><span>发布时间:</span>2018年03月16日 - 15:03</p>
-  <p><span>最后更新:</span>2018年03月18日 - 11:03</p>
+  <p><span>最后更新:</span>2018年04月09日 - 15:04</p>
   <p><span>原始链接:</span><a href="/2018/03/16/SpringBoot系列（三）——日志记录/" title="SpSpringBoot系列（二t系列（三）——日志记录">http://wfwblog.cn/2018/03/16/SpringBoot系列（三）——日志记录/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://wfwblog.cn/2018/03/16/SpringBoot系列（三）——日志记录/"  aria-label="复制成功！"></i></span>
   </p>

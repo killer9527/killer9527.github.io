@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wfwblog.cn/"/>
-  <updated>2018-04-10T02:30:02.540Z</updated>
+  <updated>2018-04-12T14:25:52.576Z</updated>
   <id>http://wfwblog.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>try-catch-finally执行顺序</title>
+    <link href="http://wfwblog.cn/2018/04/12/try-catch-finally%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://wfwblog.cn/2018/04/12/try-catch-finally执行顺序/</id>
+    <published>2018-04-12T14:09:55.000Z</published>
+    <updated>2018-04-12T14:25:52.576Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><blockquote><p>本文探究异常捕获时try-catch-finally中有return时代码的执行顺序。</p></blockquote></blockquote><a id="more"></a><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul><li>finally代码块中的代码一定会执行</li><li>try或者catch中的return后面的表达式运算后，将待返回的值保存起来，<strong>该返回值不会随着finally块中的代码的执行而改变</strong>，然后执行finally代码块中的代码</li><li>不要在finally中return</li></ul><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public void testFinallyWithException() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            System.out.println(1 / 0);</span><br><span class="line">            System.out.println(&quot;after exception&quot;);</span><br><span class="line">        &#125; catch (ArithmeticException e) &#123;</span><br><span class="line">            System.out.println(&quot;exception catch&quot;);</span><br><span class="line">            throw e;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            System.out.println(&quot;finally&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void testTryInt()&#123;</span><br><span class="line">        System.out.println(tryInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private int tryInt()&#123;</span><br><span class="line">        int x = 1;</span><br><span class="line">        try&#123;</span><br><span class="line">            x++;</span><br><span class="line">            //return x++;</span><br><span class="line">            return ++x;</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            x++;</span><br><span class="line">            System.out.println(&quot;finally: &quot; + x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol><li><a href="https://blog.csdn.net/kavensu/article/details/8067850" target="_blank" rel="noopener">有return的情况下try catch finally的执行顺序</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文探究异常捕获时try-catch-finally中有return时代码的执行顺序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="java基础" scheme="http://wfwblog.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="异常处理" scheme="http://wfwblog.cn/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot系列（七）——集成Elasticsearch</title>

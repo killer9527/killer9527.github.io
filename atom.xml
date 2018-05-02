@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wfwblog.cn/"/>
-  <updated>2018-04-12T14:25:52.576Z</updated>
+  <updated>2018-05-02T09:49:54.666Z</updated>
   <id>http://wfwblog.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos7搭建nexus maven私服</title>
+    <link href="http://wfwblog.cn/2018/05/02/centos7%E6%90%AD%E5%BB%BAnexus-maven%E7%A7%81%E6%9C%8D/"/>
+    <id>http://wfwblog.cn/2018/05/02/centos7搭建nexus-maven私服/</id>
+    <published>2018-05-02T05:56:59.000Z</published>
+    <updated>2018-05-02T09:49:54.666Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>自己的jar包需要发布到自己的私人maven仓库中以供自己在其他项目中引用。</p></blockquote><a id="more"></a><h2 id="安装nexus"><a href="#安装nexus" class="headerlink" title="安装nexus"></a>安装nexus</h2><p>准备jdk1.8的环境</p><h3 id="下载并解压nexus"><a href="#下载并解压nexus" class="headerlink" title="下载并解压nexus"></a>下载并解压nexus</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.sonatype.com/nexus/3/nexus-3.9.0-01-unix.tar.gz</span><br><span class="line">tar -zxvf nexus-3.9.0-01-unix.tar.gz -C /opt</span><br><span class="line">ln -s /opt/nexus-3.9.0-01/ /opt/nexus  #软连接</span><br></pre></td></tr></table></figure><p>修改/opt/sonatype-work的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 -R /opt/sonatype-work</span><br></pre></td></tr></table></figure></p><h3 id="创建nexus用户"><a href="#创建nexus用户" class="headerlink" title="创建nexus用户"></a>创建nexus用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser nexus</span><br><span class="line">chown -R nexus:nexus /opt/nexus</span><br></pre></td></tr></table></figure><h3 id="配置使用nexus用户运行nexus"><a href="#配置使用nexus用户运行nexus" class="headerlink" title="配置使用nexus用户运行nexus"></a>配置使用nexus用户运行nexus</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /opt/nexus/bin/nexus.rc</span><br></pre></td></tr></table></figure><p>配置<code>run_as_user=&quot;nexus&quot;</code></p><h3 id="将nexus配置为Linux服务"><a href="#将nexus配置为Linux服务" class="headerlink" title="将nexus配置为Linux服务"></a>将nexus配置为Linux服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /opt/nexus/bin/nexus /etc/init.d/nexus</span><br><span class="line">systemctl enable nexus</span><br></pre></td></tr></table></figure><h3 id="启动nexus"><a href="#启动nexus" class="headerlink" title="启动nexus"></a>启动nexus</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nexus</span><br><span class="line">systemctl status nexus</span><br></pre></td></tr></table></figure><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:8081</span><br></pre></td></tr></table></figure><p>默认用户名为<code>admin</code>，默认密码为<code>admin123</code></p><h2 id="配置repositories"><a href="#配置repositories" class="headerlink" title="配置repositories"></a>配置repositories</h2><p>因为国内阿里云的maven速度比较快，因此我们将自己的repository的代理指向阿里maven的仓库地址。<br><img src="/2018/05/02/centos7搭建nexus-maven私服/setup.png" alt="setup.png"><br>如上图所示找到repositores的配置位置。<br>默认有如下repository<br><img src="/2018/05/02/centos7搭建nexus-maven私服/mavencentral.png" alt=" mavencentral.png"></p><h3 id="修改maven-central的proxy地址"><a href="#修改maven-central的proxy地址" class="headerlink" title="修改maven-central的proxy地址"></a>修改maven-central的proxy地址</h3><p><img src="/2018/05/02/centos7搭建nexus-maven私服/proxyurl.png" alt="proxyurl.png"></p><h3 id="添加其他repository"><a href="#添加其他repository" class="headerlink" title="添加其他repository"></a>添加其他repository</h3><p><img src="/2018/05/02/centos7搭建nexus-maven私服/otherrepository.png" alt="otherrepository.png"><br>根据aliyun的仓库地址配置repository</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol><li><a href="https://drmanalo.github.io/blog/2017/installing-nexus-centos7.html" target="_blank" rel="noopener">Installing Nexus OSS on Centos 7</a></li><li><a href="https://www.cnblogs.com/grey-wolf/p/6481166.html" target="_blank" rel="noopener">centos7搭建nexus maven私服</a></li><li><a href="https://help.sonatype.com/repomanager3" target="_blank" rel="noopener">Repository Manager 3</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;自己的jar包需要发布到自己的私人maven仓库中以供自己在其他项目中引用。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CI" scheme="http://wfwblog.cn/categories/CI/"/>
+    
+    
+      <category term="maven" scheme="http://wfwblog.cn/tags/maven/"/>
+    
+      <category term="nexus" scheme="http://wfwblog.cn/tags/nexus/"/>
+    
+  </entry>
   
   <entry>
     <title>try-catch-finally执行顺序</title>

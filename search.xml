@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[centos7搭建nexus maven私服]]></title>
+    <url>%2F2018%2F05%2F02%2Fcentos7%E6%90%AD%E5%BB%BAnexus-maven%E7%A7%81%E6%9C%8D%2F</url>
+    <content type="text"><![CDATA[自己的jar包需要发布到自己的私人maven仓库中以供自己在其他项目中引用。 安装nexus准备jdk1.8的环境 下载并解压nexus123wget http://download.sonatype.com/nexus/3/nexus-3.9.0-01-unix.tar.gztar -zxvf nexus-3.9.0-01-unix.tar.gz -C /optln -s /opt/nexus-3.9.0-01/ /opt/nexus #软连接 修改/opt/sonatype-work的权限1chmod 777 -R /opt/sonatype-work 创建nexus用户12adduser nexuschown -R nexus:nexus /opt/nexus 配置使用nexus用户运行nexus1vim /opt/nexus/bin/nexus.rc 配置run_as_user=&quot;nexus&quot; 将nexus配置为Linux服务12ln -s /opt/nexus/bin/nexus /etc/init.d/nexussystemctl enable nexus 启动nexus12systemctl start nexussystemctl status nexus 测试1curl http://localhost:8081 默认用户名为admin，默认密码为admin123 配置repositories因为国内阿里云的maven速度比较快，因此我们将自己的repository的代理指向阿里maven的仓库地址。如上图所示找到repositores的配置位置。默认有如下repository 修改maven-central的proxy地址 添加其他repository根据aliyun的仓库地址配置repository 参考文章 Installing Nexus OSS on Centos 7 centos7搭建nexus maven私服 Repository Manager 3]]></content>
+      <categories>
+        <category>CI</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+        <tag>nexus</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[try-catch-finally执行顺序]]></title>
     <url>%2F2018%2F04%2F12%2Ftry-catch-finally%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[本文探究异常捕获时try-catch-finally中有return时代码的执行顺序。 结论 finally代码块中的代码一定会执行 try或者catch中的return后面的表达式运算后，将待返回的值保存起来，该返回值不会随着finally块中的代码的执行而改变，然后执行finally代码块中的代码 不要在finally中return 验证123456789101112131415161718192021222324252627public void testFinallyWithException() &#123; try &#123; System.out.println(1 / 0); System.out.println(&quot;after exception&quot;); &#125; catch (ArithmeticException e) &#123; System.out.println(&quot;exception catch&quot;); throw e; &#125; finally &#123; System.out.println(&quot;finally&quot;); &#125; &#125; public void testTryInt()&#123; System.out.println(tryInt()); &#125; private int tryInt()&#123; int x = 1; try&#123; x++; //return x++; return ++x; &#125;finally &#123; x++; System.out.println(&quot;finally: &quot; + x); &#125; &#125; 参考文章 有return的情况下try catch finally的执行顺序]]></content>

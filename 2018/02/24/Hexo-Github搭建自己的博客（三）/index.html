@@ -176,8 +176,6 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Siri咔咔" type="application/atom+xml" />
-
 
 
 
@@ -484,7 +482,7 @@
 </li>
 </ol>
 <p>repo也可以配置为https的形式，但是我在发布过程中总是提示我版本不对，因此改用ssh发布</p>
-<ol>
+<ol start="4">
 <li><p>安装发布插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
 </li>
@@ -496,9 +494,9 @@
 </ol>
 <h3 id="定制域名"><a href="#定制域名" class="headerlink" title="定制域名"></a>定制域名</h3><p>如果我们想自己申请域名作为自己的博客地址，可以使用GitHub Pages的Custom domain功能。</p>
 <ol>
-<li>申请域名<br>我是在腾讯云上申请的，然后需要配置我们域名的解析<br><img src="/2018/02/24/Hexo-Github搭建自己的博客（三）/dns.png" alt="dns"><br>注意记录类型选择CNAME，记录值填写仓库名称即可，表明是域名绑定域名</li>
-<li>配置GitHub Pages<br>进入repository的Settings，找到GitHub Pages，并配置custom domain<br><img src="/2018/02/24/Hexo-Github搭建自己的博客（三）/githubpages.png" alt="githubpages.png"><br>点击Save后，在Code中会增加CNAME文件，内容即为我们的自定义域名。</li>
-<li>hexo中增加CNAME文件<br>由于每次Deploy后CNAME文件都会被删掉，因此需要在站点目录下的source中新增CNAME文件，内容为自定义域名<br><img src="/2018/02/24/Hexo-Github搭建自己的博客（三）/cname.png" alt="cname.png"></li>
+<li>申请域名<br>我是在腾讯云上申请的，然后需要配置我们域名的解析<br><img src="dns.png" alt="dns"><br>注意记录类型选择CNAME，记录值填写仓库名称即可，表明是域名绑定域名</li>
+<li>配置GitHub Pages<br>进入repository的Settings，找到GitHub Pages，并配置custom domain<br><img src="githubpages.png" alt="githubpages.png"><br>点击Save后，在Code中会增加CNAME文件，内容即为我们的自定义域名。</li>
+<li>hexo中增加CNAME文件<br>由于每次Deploy后CNAME文件都会被删掉，因此需要在站点目录下的source中新增CNAME文件，内容为自定义域名<br><img src="cname.png" alt="cname.png"></li>
 <li>测试<br>访问自定义域名</li>
 </ol>
 
@@ -705,7 +703,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -797,13 +795,6 @@
             </nav>
           
 
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
           
 
           
